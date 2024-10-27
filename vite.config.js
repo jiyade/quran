@@ -41,7 +41,10 @@ export default defineConfig({
                         purpose: 'maskable'
                     }
                 ]
-            }
+            },
+            workbox: {
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+            },
         })
     ]
 })
