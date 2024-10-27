@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Lora';
+    src: url('./fonts/Lora-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Lora', serif;
+    scroll-behavior: smooth;
+    user-select: none;
+}
+
+.font-lora {
+    font-family: 'Lora', serif;
+}
+
+.font-amiri {
+    font-family: 'Amiri', serif;
+}
+
+.font-roboto {
+    font-family: 'Roboto';
+}
+
+.transition-height-enter {
+    height: 0;
+}
+
+.transition-height-enter-active {
+    height: 350px;
+    transition: height 300ms;
+}
+
+.transition-height-exit {
+    height: 350px;
+}
+
+.transition-height-exit-active {
+    height: 0;
+    transition: height 300ms;
+}
+
+.clip-hexagon {
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}

@@ -1,0 +1,746 @@
+[
+    {
+        "id": 38,
+        "name": "English",
+        "code": "en",
+        "native_name": "English",
+        "direction": "ltr",
+        "translations_count": 19,
+        "translated_name": {
+            "name": "English",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 174,
+        "name": "Urdu",
+        "code": "ur",
+        "native_name": "اردو",
+        "direction": "rtl",
+        "translations_count": 9,
+        "translated_name": {
+            "name": "Urdu",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 20,
+        "name": "Bengali",
+        "code": "bn",
+        "native_name": "বাংলা",
+        "direction": "ltr",
+        "translations_count": 7,
+        "translated_name": {
+            "name": "Bengali",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 167,
+        "name": "Turkish",
+        "code": "tr",
+        "native_name": "Türkçe",
+        "direction": "ltr",
+        "translations_count": 6,
+        "translated_name": {
+            "name": "Turkish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 40,
+        "name": "Spanish",
+        "code": "es",
+        "native_name": "Español",
+        "direction": "ltr",
+        "translations_count": 5,
+        "translated_name": {
+            "name": "Spanish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 49,
+        "name": "French",
+        "code": "fr",
+        "native_name": "Français",
+        "direction": "ltr",
+        "translations_count": 4,
+        "translated_name": {
+            "name": "French",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 23,
+        "name": "Bosnian",
+        "code": "bs",
+        "native_name": "Bosanski",
+        "direction": "ltr",
+        "translations_count": 4,
+        "translated_name": {
+            "name": "Bosnian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 138,
+        "name": "Russian",
+        "code": "ru",
+        "native_name": "Русский",
+        "direction": "ltr",
+        "translations_count": 4,
+        "translated_name": {
+            "name": "Russian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 106,
+        "name": "Malayalam",
+        "code": "ml",
+        "native_name": "മലയാളം",
+        "direction": "ltr",
+        "translations_count": 4,
+        "translated_name": {
+            "name": "Malayalam",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 67,
+        "name": "Indonesian",
+        "code": "id",
+        "native_name": "Bahasa Indonesia",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Indonesian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 175,
+        "name": "Uzbek",
+        "code": "uz",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Uzbek",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 118,
+        "name": "Dutch",
+        "code": "nl",
+        "native_name": "Nederlands",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Dutch",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 33,
+        "name": "German",
+        "code": "de",
+        "native_name": "Deutsch",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "German",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 160,
+        "name": "Tajik",
+        "code": "tg",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Tajik",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 158,
+        "name": "Tamil",
+        "code": "ta",
+        "native_name": "தமிழ்",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Tamil",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 76,
+        "name": "Japanese",
+        "code": "ja",
+        "native_name": "日本語",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Japanese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 74,
+        "name": "Italian",
+        "code": "it",
+        "native_name": "Italiano",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Italian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 177,
+        "name": "Vietnamese",
+        "code": "vi",
+        "native_name": "Tiếng Việt",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Vietnamese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 185,
+        "name": "Chinese",
+        "code": "zh",
+        "native_name": "中文",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Chinese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 187,
+        "name": "Albanian",
+        "code": "sq",
+        "native_name": "Shqip",
+        "direction": "ltr",
+        "translations_count": 3,
+        "translated_name": {
+            "name": "Albanian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 43,
+        "name": "Persian",
+        "code": "fa",
+        "native_name": "فارسی",
+        "direction": "rtl",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Persian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 19,
+        "name": "Bambara",
+        "code": "bm",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Bambara",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 58,
+        "name": "Hausa",
+        "code": "ha",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Hausa",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 133,
+        "name": "Portuguese",
+        "code": "pt",
+        "native_name": "Português",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Portuguese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 137,
+        "name": "Romanian",
+        "code": "ro",
+        "native_name": "Română",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Romanian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 60,
+        "name": "Hindi",
+        "code": "hi",
+        "native_name": "हिन्दी",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Hindi",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 157,
+        "name": "Swahili",
+        "code": "sw",
+        "native_name": "Kiswahili",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Swahili",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 82,
+        "name": "Kazakh",
+        "code": "kk",
+        "native_name": "Қазақ",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Kazakh",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 161,
+        "name": "Thai",
+        "code": "th",
+        "native_name": "ภาษาไทย",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Thai",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 164,
+        "name": "Tagalog",
+        "code": "tl",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Tagalog",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 84,
+        "name": "Central Khmer",
+        "code": "km",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Central Khmer",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 10,
+        "name": "Assamese",
+        "code": "as",
+        "native_name": "অসমীয়া",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Assamese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 86,
+        "name": "Korean",
+        "code": "ko",
+        "native_name": "한국어",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Korean",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 150,
+        "name": "Somali",
+        "code": "so",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Somali",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Azeri",
+        "code": "az",
+        "native_name": "Azərbaycan dili",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Azeri",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 89,
+        "name": "Kurdish",
+        "code": "ku",
+        "native_name": "Kurdî",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Kurdish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 34,
+        "name": "Divehi, Dhivehi, Maldivian",
+        "code": "dv",
+        "native_name": "ދިވެހި",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Divehi, Dhivehi, Maldivian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 110,
+        "name": "Malay",
+        "code": "ms",
+        "native_name": "Bahasa Melayu",
+        "direction": "ltr",
+        "translations_count": 2,
+        "translated_name": {
+            "name": "Malay",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 190,
+        "name": "Dari",
+        "code": "prs",
+        "native_name": "دری",
+        "direction": "rtl",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Dari",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 6,
+        "name": "Amharic",
+        "code": "am",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Amharic",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 25,
+        "name": "Chechen",
+        "code": "ce",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Chechen",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 29,
+        "name": "Czech",
+        "code": "cs",
+        "native_name": "Čeština",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Czech",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 45,
+        "name": "Finnish",
+        "code": "fi",
+        "native_name": "Suomi",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Finnish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 56,
+        "name": "Gujarati",
+        "code": "gu",
+        "native_name": "ગુજરાતી",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Gujarati",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 59,
+        "name": "Hebrew",
+        "code": "he",
+        "native_name": "עברית",
+        "direction": "rtl",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Hebrew",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 85,
+        "name": "Kannada",
+        "code": "kn",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Kannada",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 95,
+        "name": "Ganda",
+        "code": "lg",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Ganda",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 108,
+        "name": "Marathi",
+        "code": "mr",
+        "native_name": "मराठी",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Marathi",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 109,
+        "name": "Maranao",
+        "code": "mrn",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Maranao",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 116,
+        "name": "Nepali",
+        "code": "ne",
+        "native_name": "नेपाली",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Nepali",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 120,
+        "name": "Norwegian",
+        "code": "no",
+        "native_name": "Norsk",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Norwegian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 126,
+        "name": "Oromo",
+        "code": "om",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Oromo",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 131,
+        "name": "Polish",
+        "code": "pl",
+        "native_name": "Polski",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Polish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 132,
+        "name": "Pashto",
+        "code": "ps",
+        "native_name": "پښتو",
+        "direction": "rtl",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Pashto",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 139,
+        "name": "Kinyarwanda",
+        "code": "rw",
+        "native_name": "Ikinyarwanda",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Kinyarwanda",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 145,
+        "name": "Sinhala, Sinhalese",
+        "code": "si",
+        "native_name": "සිංහල",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Sinhala, Sinhalese",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 156,
+        "name": "Swedish",
+        "code": "sv",
+        "native_name": "Svenska",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Swedish",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 159,
+        "name": "Telugu",
+        "code": "te",
+        "native_name": "తెలుగు",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Telugu",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 169,
+        "name": "Tatar",
+        "code": "tt",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Tatar",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 172,
+        "name": "Uighur, Uyghur",
+        "code": "ug",
+        "native_name": "",
+        "direction": "rtl",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Uighur, Uyghur",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 173,
+        "name": "Ukrainian",
+        "code": "uk",
+        "native_name": "Українська",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Ukrainian",
+            "language_name": "english"
+        }
+    },
+    {
+        "id": 183,
+        "name": "Yoruba",
+        "code": "yo",
+        "native_name": "",
+        "direction": "ltr",
+        "translations_count": 1,
+        "translated_name": {
+            "name": "Yoruba",
+            "language_name": "english"
+        }
+    }
+]
