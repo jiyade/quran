@@ -41,13 +41,7 @@ export default defineConfig({
                         purpose: 'maskable'
                     }
                 ]
-            },
-            workbox: {
-                mode: 'production'
             }
         })
-    ],
-    build: {
-      minify: false
-    }
+    ]
 })
