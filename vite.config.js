@@ -11,7 +11,9 @@ export default defineConfig({
             includeAssets: [
                 'favicon.ico',
                 'apple-touch-icon.png',
-                'mask-icon.svg'
+                'mask-icon.svg',
+                'assets/*.ttf',        // Include all fonts in assets folder
+                'assets/*.png',        // Include all images in assets folder
             ],
             manifest: {
                 name: 'The Holy Quran',
@@ -43,7 +45,9 @@ export default defineConfig({
                 ]
             },
             workbox: {
-        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+                globPatterns: ['**/*.{js,css,html,ttf,png,ico}'],  // Cache JS, CSS, HTML, fonts, images, and icons
+                cleanupOutdatedCaches: true,
+                maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,    // Keep file size limit if necessary
             },
         })
     ]
