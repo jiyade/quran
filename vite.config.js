@@ -10,7 +10,9 @@ export default defineConfig({
             includeAssets: [
                 'favicon.ico',
                 'apple-touch-icon.png',
-                'mask-icon.svg'
+                'mask-icon.svg',
+                'assets/*.png',
+                'assets/*.ttf'
             ],
             manifest: {
                 name: 'The Holy Quran',
