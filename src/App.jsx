@@ -18,9 +18,20 @@ const App = () => {
             e.preventDefault()
         }
 
+        const disablePinchZoom = (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault()
+            }
+        }
+
+        document.addEventListener('touchmove', disablePinchZoom, {
+            passive: false
+        })
         document.addEventListener('contextmenu', handleContextMenu)
 
         return () => {
+            document.removeEventListener('touchmove', disablePinchZoom)
+
             document.removeEventListener('contextmenu', handleContextMenu)
         }
     }, [])
