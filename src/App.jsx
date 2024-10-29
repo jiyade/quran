@@ -13,9 +13,9 @@ const JuzReader = React.lazy(() => import('./pages/JuzReader'))
 const HizbReader = React.lazy(() => import('./pages/HizbReader'))
 
 const App = () => {
-    
+useEffect(() => {
 
-    useEffect(() => {
+    
         const handleContextMenu = (e) => {
             e.preventDefault()
         }
@@ -37,8 +37,6 @@ const App = () => {
             document.removeEventListener('contextmenu', handleContextMenu)
         }
     }, [])
-
-    
 
     return (
         <>
