@@ -16,7 +16,7 @@ export default defineConfig({
             ],
             manifest: {
                 name: 'The Holy Quran',
-                short_name: 'Quran',
+                short_name: 'The Quran',
                 theme_color: '#ffffff',
                 icons: [
                     {
@@ -44,7 +44,16 @@ export default defineConfig({
                 ]
             },
             workbox: {
-                maximumFileSizeToCacheInBytes: 4 * 1024 * 1024
+                maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+                runtimeCaching: [
+                    {
+                        urlPattern: /\.(ttf|woff|woff2)$/,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'font-cache'
+                        }
+                    }
+                ]
             }
         })
     ]
