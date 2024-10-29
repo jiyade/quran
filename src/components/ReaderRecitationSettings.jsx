@@ -61,7 +61,7 @@ const ReaderRecitationSettings = ({
                                     key={audio.id}
                                     recitationsPage={recitationsPage}
                                 >
-                                    {audio.reciter_name}
+                                    {audio.reciter_name}{audio.style ? `(${audio.style})` : ''}
                                 </Option>
                             ))}
                         </Select>
