@@ -36,6 +36,7 @@ const Reader = () => {
     const start = Number(searchParams.get('start'))
     const end = Number(searchParams.get('end'))
 
+    
     const [surah, setSurah] = useState({})
     const [currentJuz, setCurrentJuz] = useState(null)
     const [currentHizb, setCurrentHizb] = useState(null)
@@ -152,73 +153,61 @@ const Reader = () => {
         }
     }
 
-    useEffect(() => {
-        const handleSurahTranslation = async () => {
-            try {
-                if (!isTranslate) {
-                    return
-                }
-
-                if (!navigator.onLine) {
-                    toast.dismiss(offlineToastId?.current)
-                    offlineToastId.current = toast.error(
-                        'Please turn on the Internet',
-                        {
-                            position: 'top-center',
-                            duration: 3000,
-                            style: {
-                                marginTop: '50px',
-                                fontSize: '.8em',
-                                fontWeight: 600
-                            }
-                        }
-                    )
-                    setIsTranslate(false)
-                    return
-                }
-
-                setIsTranslationLoading(true)
-
-                const res = await axios.get(
-                    `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${id}`
-                )
-                const data = await res?.data?.translations
-
-                setTranslationData(() => {
-                    if (id !== '1') {
-                        const newTranslation = [
-                            {
-                                text: bismiTranslations[
-                                    `translation${translation.val}`
-                                ].text.replace(/<sup.*?<\/sup>/g, '')
-                            },
-                            ...data
-                        ]
-
-                        return newTranslation
-                    } else {
-                        return data
-                    }
-                })
-            } catch (err) {
-                console.log(err)
-            } finally {
-                setTimeout(() => {
-                    setIsTranslationLoading(false)
-                }, 300)
+    const handleSurahTranslation = async (translationOn = false) => {
+        try {
+            if (!translationOn) {
+                return
             }
-        }
 
-        handleSurahTranslation()
-    }, [
-        navigator.onLine,
-        isTranslate,
-        TRANSLATION_BASE_URL,
-        id,
-        offlineToastId.current,
-        language,
-        translation
-    ])
+            if (!navigator.onLine) {
+                toast.dismiss(offlineToastId?.current)
+                offlineToastId.current = toast.error(
+                    'Please turn on the Internet',
+                    {
+                        position: 'top-center',
+                        duration: 3000,
+                        style: {
+                            marginTop: '50px',
+                            fontSize: '.8em',
+                            fontWeight: 600
+                        }
+                    }
+                )
+                setIsTranslate(false)
+                return
+            }
+
+            setIsTranslationLoading(true)
+
+            const res = await axios.get(
+                `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${id}`
+            )
+            const data = await res?.data?.translations
+
+            setTranslationData(() => {
+                if (id !== '1') {
+                    const newTranslation = [
+                        {
+                            text: bismiTranslations[
+                                `translation${translation.val}`
+                            ].text.replace(/<sup.*?<\/sup>/g, '')
+                        },
+                        ...data
+                    ]
+
+                    return newTranslation
+                } else {
+                    return data
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        } finally {
+            setTimeout(() => {
+                setIsTranslationLoading(false)
+            }, 300)
+        }
+    }
 
     useEffect(() => {
         setIsLoading(true)
@@ -430,6 +419,7 @@ const Reader = () => {
                             isRecite={isRecite}
                             setIsTranslate={setIsTranslate}
                             isTranslate={isTranslate}
+                            handleSurahTranslation={handleSurahTranslation}
                             setAudioData={setAudioData}
                             toastId={toastId}
                             offlineToastId={offlineToastId}
@@ -478,7 +468,7 @@ const Reader = () => {
                 ></div>
             )}
         </>
-    )
+    ) 
 }
 
 export default Reader

@@ -153,10 +153,10 @@ const JuzReader = () => {
         }
     }
 
-    useEffect(() => {
-        const handleSurahTranslation = async () => {
+    
+        const handleSurahTranslation = async (translationOn = false) => {
             try {
-                if (!isTranslate) {
+                if (!translationOn) {
                     return
                 }
 
@@ -224,15 +224,7 @@ const JuzReader = () => {
             }
         }
 
-        handleSurahTranslation()
-    }, [
-        navigator.onLine,
-        isTranslate,
-        TRANSLATION_BASE_URL,
-        offlineToastId.current,
-        language,
-        translation
-    ])
+        
 
     useEffect(() => {
         setIsLoading(true)
@@ -450,6 +442,7 @@ const JuzReader = () => {
                             isRecite={isRecite}
                             setIsTranslate={setIsTranslate}
                             isTranslate={isTranslate}
+                            handleSurahTranslation={handleSurahTranslation}
                             setAudioData={setAudioData}
                             toastId={toastId}
                             offlineToastId={offlineToastId}

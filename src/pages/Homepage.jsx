@@ -13,7 +13,6 @@ const Homepage = () => {
     const [query, setQuery] = useState('')
     const [surahs, setSurahs] = useState(surahsJson)
 
-    
     const [lastRead, setLastRead] = useState(() => {
         if (localStorage.getItem('last-read')) {
             return JSON.parse(localStorage.getItem('last-read'))
@@ -39,8 +38,6 @@ const Homepage = () => {
             setSurahs(surahsJson)
         }
     }, [query])
-
-    
 
     return (
         <div className='w-full h-full flex flex-col'>

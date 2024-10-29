@@ -155,88 +155,75 @@ const HizbReader = () => {
         }
     }
 
-    useEffect(() => {
-        const handleSurahTranslation = async () => {
-            try {
-                if (!isTranslate) {
-                    return
-                }
-
-                if (!navigator.onLine) {
-                    toast.dismiss(offlineToastId?.current)
-                    offlineToastId.current = toast.error(
-                        'Please turn on the Internet',
-                        {
-                            position: 'top-center',
-                            duration: 3000,
-                            style: {
-                                marginTop: '50px',
-                                fontSize: '.8em',
-                                fontWeight: 600
-                            }
-                        }
-                    )
-                    setIsTranslate(false)
-                    return
-                }
-
-                setIsTranslationLoading(true)
-
-                const surahObj = [
-                    ...new Set(surahs.map((surah) => surah.number))
-                ]
-
-                const allTranslations = []
-
-                for (const surah of surahObj) {
-                    const res = await axios.get(
-                        `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${surah}`
-                    )
-                    const data = await res?.data?.translations
-
-                    const newTranslation =
-                        surah !== 1
-                            ? [
-                                  {
-                                      text: bismiTranslations[
-                                          `translation${translation.val}`
-                                      ].text.replace(/<sup.*?<\/sup>/g, '')
-                                  },
-                                  ...data
-                              ]
-                            : data
-
-                    allTranslations.push(newTranslation)
-                }
-
-                setTranslationData(allTranslations)
-            } catch (err) {
-                console.log(err)
-                toast.error('Failed to fetch translations', {
-                    position: 'top-center',
-                    duration: 3000,
-                    style: {
-                        marginTop: '50px',
-                        fontSize: '.8em',
-                        fontWeight: 600
-                    }
-                })
-            } finally {
-                setTimeout(() => {
-                    setIsTranslationLoading(false)
-                }, 300)
+    const handleSurahTranslation = async (translationOn = false) => {
+        try {
+            if (!translationOn) {
+                return
             }
-        }
 
-        handleSurahTranslation()
-    }, [
-        navigator.onLine,
-        isTranslate,
-        TRANSLATION_BASE_URL,
-        offlineToastId.current,
-        language,
-        translation
-    ])
+            if (!navigator.onLine) {
+                toast.dismiss(offlineToastId?.current)
+                offlineToastId.current = toast.error(
+                    'Please turn on the Internet',
+                    {
+                        position: 'top-center',
+                        duration: 3000,
+                        style: {
+                            marginTop: '50px',
+                            fontSize: '.8em',
+                            fontWeight: 600
+                        }
+                    }
+                )
+                setIsTranslate(false)
+                return
+            }
+
+            setIsTranslationLoading(true)
+
+            const surahObj = [...new Set(surahs.map((surah) => surah.number))]
+
+            const allTranslations = []
+
+            for (const surah of surahObj) {
+                const res = await axios.get(
+                    `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${surah}`
+                )
+                const data = await res?.data?.translations
+
+                const newTranslation =
+                    surah !== 1
+                        ? [
+                              {
+                                  text: bismiTranslations[
+                                      `translation${translation.val}`
+                                  ].text.replace(/<sup.*?<\/sup>/g, '')
+                              },
+                              ...data
+                          ]
+                        : data
+
+                allTranslations.push(newTranslation)
+            }
+
+            setTranslationData(allTranslations)
+        } catch (err) {
+            console.log(err)
+            toast.error('Failed to fetch translations', {
+                position: 'top-center',
+                duration: 3000,
+                style: {
+                    marginTop: '50px',
+                    fontSize: '.8em',
+                    fontWeight: 600
+                }
+            })
+        } finally {
+            setTimeout(() => {
+                setIsTranslationLoading(false)
+            }, 300)
+        }
+    }
 
     useEffect(() => {
         setIsLoading(true)
@@ -415,10 +402,9 @@ const HizbReader = () => {
         const handleScroll = () => {
             const scrollPos = mainDivRef?.current?.scrollTop
 
-            const pathname =
-                quarter
-                    ? `${location.pathname}?quarter=${quarter}`
-                    : location.pathname
+            const pathname = quarter
+                ? `${location.pathname}?quarter=${quarter}`
+                : location.pathname
 
             const obj = {
                 pathname,
@@ -439,8 +425,8 @@ const HizbReader = () => {
             const scrollPos = mainDivRef?.current?.scrollTop
 
             const pathname = quarter
-                    ? `${location.pathname}?quarter=${quarter}`
-                    : location.pathname
+                ? `${location.pathname}?quarter=${quarter}`
+                : location.pathname
 
             const obj = {
                 pathname,
@@ -550,6 +536,7 @@ const HizbReader = () => {
                             isRecite={isRecite}
                             setIsTranslate={setIsTranslate}
                             isTranslate={isTranslate}
+                            handleSurahTranslation={handleSurahTranslation}
                             setAudioData={setAudioData}
                             toastId={toastId}
                             offlineToastId={offlineToastId}

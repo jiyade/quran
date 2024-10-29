@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
@@ -13,6 +13,33 @@ const JuzReader = React.lazy(() => import('./pages/JuzReader'))
 const HizbReader = React.lazy(() => import('./pages/HizbReader'))
 
 const App = () => {
+    
+
+    useEffect(() => {
+        const handleContextMenu = (e) => {
+            e.preventDefault()
+        }
+
+        const disablePinchZoom = (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault()
+            }
+        }
+
+        document.addEventListener('touchmove', disablePinchZoom, {
+            passive: false
+        })
+        document.addEventListener('contextmenu', handleContextMenu)
+
+        return () => {
+            document.removeEventListener('touchmove', disablePinchZoom)
+
+            document.removeEventListener('contextmenu', handleContextMenu)
+        }
+    }, [])
+
+    
+
     return (
         <>
             <BrowserRouter>

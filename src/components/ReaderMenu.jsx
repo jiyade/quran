@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import toast from 'react-hot-toast'
 import { PiTranslateBold } from 'react-icons/pi'
 import { PiTranslateFill } from 'react-icons/pi'
@@ -13,6 +14,7 @@ const ReaderMenu = ({
     isRecite,
     isTranslate,
     setIsTranslate,
+    handleSurahTranslation,
     setAudioData,
     setIsReaderSettingsShown,
     toastId,
@@ -71,6 +73,7 @@ const ReaderMenu = ({
             }, 300)
         } else {
             setIsTranslate(true)
+            handleSurahTranslation(true)
         }
     }
 

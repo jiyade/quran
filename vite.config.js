@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         react(),
@@ -11,11 +10,13 @@ export default defineConfig({
             includeAssets: [
                 'favicon.ico',
                 'apple-touch-icon.png',
-                'mask-icon.svg'
+                'mask-icon.svg',
+                'assets/*.png',
+                'assets/*.ttf'
             ],
             manifest: {
                 name: 'The Holy Quran',
-                short_name: 'Quran',
+                short_name: 'The Quran',
                 theme_color: '#ffffff',
                 icons: [
                     {
@@ -43,11 +44,17 @@ export default defineConfig({
                 ]
             },
             workbox: {
-                mode: 'production'
+                maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+                runtimeCaching: [
+                    {
+                        urlPattern: /\.(ttf|woff|woff2)$/,
+                        handler: 'CacheFirst',
+                        options: {
+                            cacheName: 'font-cache'
+                        }
+                    }
+                ]
             }
         })
-    ],
-    build: {
-      minify: false
-    }
+    ]
 })
