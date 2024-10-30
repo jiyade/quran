@@ -7,6 +7,7 @@ const AyahWithTranslationContainer = ({
     surah,
     isRecite,
     handleAyahSelection,
+    font,
     fontSize,
     currentSurahNumber,
     lastSurahNumber,
@@ -30,6 +31,7 @@ const AyahWithTranslationContainer = ({
                     surah={isJuzPage ? surah.surah : surah}
                     currentJuz={currentJuz}
                     currentHizb={currentHizb}
+                    font={font}
                 />
             </div>
             <div
@@ -55,6 +57,7 @@ const AyahWithTranslationContainer = ({
                             }
                             numberOfAyahs={surah.numberOfAyahs}
                             isRecite={isRecite}
+                            font={font}
                             handleAyahSelection={handleAyahSelection}
                             currentHizb={currentHizb}
                             setCurrentHizb={setCurrentHizb}

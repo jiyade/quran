@@ -36,6 +36,15 @@ const Recitations = () => {
         }
     })
 
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
+
     const offlineToastId = useRef(null)
 
     useEffect(() => {
@@ -83,7 +92,10 @@ const Recitations = () => {
             const obj = {
                 audio: data.audio_url,
                 reciter: surahReciter.name,
-                surah: { number: surahId, englishName: surahsJson[surahId-1].englishName }
+                surah: {
+                    number: surahId,
+                    englishName: surahsJson[surahId - 1].englishName
+                }
             }
 
             setAudioData(obj)
@@ -142,6 +154,7 @@ const Recitations = () => {
                         key={surah.number}
                         recitationsPage={true}
                         reciteSurah={reciteSurah}
+                        font={font}
                     />
                 ))}
             </div>

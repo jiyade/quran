@@ -90,10 +90,27 @@ const JuzReader = () => {
     })
 
     const [translationData, setTranslationData] = useState([])
-    const [fontSize, setFontSize] = useState('text-xl')
     const [autoScroll, setAutoScroll] = useState(false)
     const [autoScrollSpeed, setAutoScrollSpeed] = useState(30)
     const [brightness, setBrightness] = useState(100)
+
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
+
+    const [fontSize, setFontSize] = useState(() => {
+        if (localStorage.getItem('font-size') === null) {
+            localStorage.setItem('font-size', 'text-xl')
+            return 'text-xl'
+        } else {
+            return localStorage.getItem('font-size')
+        }
+    })
 
     const toastId = useRef(null)
     const offlineToastId = useRef(null)
@@ -153,78 +170,75 @@ const JuzReader = () => {
         }
     }
 
-    
-        const handleSurahTranslation = async (translationOn = false) => {
-            try {
-                if (!translationOn) {
-                    return
-                }
-
-                if (!navigator.onLine) {
-                    toast.dismiss(offlineToastId?.current)
-                    offlineToastId.current = toast.error(
-                        'Please turn on the Internet',
-                        {
-                            position: 'top-center',
-                            duration: 3000,
-                            style: {
-                                marginTop: '50px',
-                                fontSize: '.8em',
-                                fontWeight: 600
-                            }
-                        }
-                    )
-                    setIsTranslate(false)
-                    return
-                }
-
-                setIsTranslationLoading(true)
-
-                const surahNumbers = [
-                    ...new Set(surahs.map((surah) => surah.number))
-                ]
-                const allTranslations = []
-
-                for (const surah of surahNumbers) {
-                    const res = await axios.get(
-                        `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${surah}`
-                    )
-                    const data = await res?.data?.translations
-
-                    const newTranslation =
-                        surah !== 1
-                            ? [
-                                  {
-                                      text: bismiTranslations[
-                                          `translation${translation.val}`
-                                      ].text.replace(/<sup.*?<\/sup>/g, '')
-                                  },
-                                  ...data
-                              ]
-                            : data
-                    allTranslations.push(newTranslation)
-                }
-
-                setTranslationData(allTranslations)
-            } catch (err) {
-                console.log(err)
-                toast.error('Failed to fetch translations', {
-                    position: 'top-center',
-                    duration: 3000,
-                    style: {
-                        marginTop: '50px',
-                        fontSize: '.8em',
-                        fontWeight: 600
-                    }
-                })
-            } finally {
-                setTimeout(() => {
-                    setIsTranslationLoading(false)
-                }, 300)
+    const handleSurahTranslation = async (translationOn = false) => {
+        try {
+            if (!translationOn) {
+                return
             }
-        }
 
-        
+            if (!navigator.onLine) {
+                toast.dismiss(offlineToastId?.current)
+                offlineToastId.current = toast.error(
+                    'Please turn on the Internet',
+                    {
+                        position: 'top-center',
+                        duration: 3000,
+                        style: {
+                            marginTop: '50px',
+                            fontSize: '.8em',
+                            fontWeight: 600
+                        }
+                    }
+                )
+                setIsTranslate(false)
+                return
+            }
+
+            setIsTranslationLoading(true)
+
+            const surahNumbers = [
+                ...new Set(surahs.map((surah) => surah.number))
+            ]
+            const allTranslations = []
+
+            for (const surah of surahNumbers) {
+                const res = await axios.get(
+                    `${TRANSLATION_BASE_URL}/quran/translations/${translation.val}?chapter_number=${surah}`
+                )
+                const data = await res?.data?.translations
+
+                const newTranslation =
+                    surah !== 1
+                        ? [
+                              {
+                                  text: bismiTranslations[
+                                      `translation${translation.val}`
+                                  ].text.replace(/<sup.*?<\/sup>/g, '')
+                              },
+                              ...data
+                          ]
+                        : data
+                allTranslations.push(newTranslation)
+            }
+
+            setTranslationData(allTranslations)
+        } catch (err) {
+            console.log(err)
+            toast.error('Failed to fetch translations', {
+                position: 'top-center',
+                duration: 3000,
+                style: {
+                    marginTop: '50px',
+                    fontSize: '.8em',
+                    fontWeight: 600
+                }
+            })
+        } finally {
+            setTimeout(() => {
+                setIsTranslationLoading(false)
+            }, 300)
+        }
+    }
 
     useEffect(() => {
         setIsLoading(true)
@@ -389,9 +403,9 @@ const JuzReader = () => {
                                     surah={surah}
                                     isJuzPage={true}
                                     isRecite={isRecite}
+                                    font={font}
                                     fontSize={fontSize}
                                     handleAyahSelection={handleAyahSelection}
-                                    
                                     lastSurahNumber={surahs.length}
                                     currentSurahNumber={index + 1}
                                     currentJuz={currentJuz}
@@ -412,9 +426,9 @@ const JuzReader = () => {
                                     surah={surah}
                                     isRecite={isRecite}
                                     isJuzPage={true}
+                                    font={font}
                                     fontSize={fontSize}
                                     handleAyahSelection={handleAyahSelection}
-                                    
                                     lastSurahNumber={surahs.length}
                                     currentSurahNumber={index + 1}
                                     currentJuz={currentJuz}
@@ -464,6 +478,8 @@ const JuzReader = () => {
                 <ReaderSettings
                     isReaderSettingsShown={isReaderSettingsShown}
                     nodeRef={nodeRef}
+                    font={font}
+                    setFont={setFont}
                     fontSize={fontSize}
                     setFontSize={setFontSize}
                     brightness={brightness}

@@ -92,10 +92,27 @@ const HizbReader = () => {
     })
 
     const [translationData, setTranslationData] = useState([])
-    const [fontSize, setFontSize] = useState('text-xl')
     const [autoScroll, setAutoScroll] = useState(false)
     const [autoScrollSpeed, setAutoScrollSpeed] = useState(30)
     const [brightness, setBrightness] = useState(100)
+
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
+
+    const [fontSize, setFontSize] = useState(() => {
+        if (localStorage.getItem('font-size') === null) {
+            localStorage.setItem('font-size', 'text-xl')
+            return 'text-xl'
+        } else {
+            return localStorage.getItem('font-size')
+        }
+    })
 
     const toastId = useRef(null)
     const offlineToastId = useRef(null)
@@ -485,6 +502,7 @@ const HizbReader = () => {
                                     surah={surah}
                                     isJuzPage={true}
                                     isRecite={isRecite}
+                                    font={font}
                                     fontSize={fontSize}
                                     handleAyahSelection={handleAyahSelection}
                                     lastSurahNumber={surahs.length}
@@ -507,6 +525,7 @@ const HizbReader = () => {
                                     surah={surah}
                                     isRecite={isRecite}
                                     isJuzPage={true}
+                                    font={font}
                                     fontSize={fontSize}
                                     handleAyahSelection={handleAyahSelection}
                                     lastSurahNumber={surahs.length}
@@ -558,6 +577,8 @@ const HizbReader = () => {
                 <ReaderSettings
                     isReaderSettingsShown={isReaderSettingsShown}
                     nodeRef={nodeRef}
+                    font={font}
+                    setFont={setFont}
                     fontSize={fontSize}
                     setFontSize={setFontSize}
                     brightness={brightness}

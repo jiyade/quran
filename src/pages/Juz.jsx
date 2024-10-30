@@ -18,6 +18,15 @@ const Juz = () => {
     const [juzData, setJuzData] = useState(juzJson)
     const [hizbData, setHizbData] = useState(hizbJson)
 
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
+
     const containerRef = useRef(null)
     const queryRef = useRef(null)
     const mainDivRef = useRef(null)
@@ -130,6 +139,7 @@ const Juz = () => {
                             <JuzWrapper
                                 juz={juz}
                                 surahs={surahsJson}
+                                font={font}
                                 key={juz.id}
                             />
                         ))}
@@ -146,6 +156,7 @@ const Juz = () => {
                         {hizbData.map((hizb) => (
                             <HizbWrapper
                                 hizb={hizb}
+                                font={font}
                                 key={hizb.id}
                             />
                         ))}

@@ -7,6 +7,7 @@ const AyahWithTranslation = ({
     translation,
     numberOfAyahs,
     isRecite,
+    font,
     handleAyahSelection,
     currentHizb,
     setCurrentHizb,
@@ -19,7 +20,7 @@ const AyahWithTranslation = ({
         localStorage.getItem('translationLanguage')
     ).direction
     const surahId = ayah?.surah?.number || Number(useParams().id)
-    
+
     useEffect(() => {
         const checkAyahPosition = () => {
             if (ayahRef.current) {
@@ -80,7 +81,7 @@ const AyahWithTranslation = ({
                         isRecite && ayah.numberInSurah !== 0
                             ? 'text-green-700'
                             : ''
-                    } font-amiri`}
+                    } font-${font}`}
                 >
                     {ayah?.text.replace('\n', '')}
                 </span>

@@ -36,7 +36,6 @@ const Reader = () => {
     const start = Number(searchParams.get('start'))
     const end = Number(searchParams.get('end'))
 
-    
     const [surah, setSurah] = useState({})
     const [currentJuz, setCurrentJuz] = useState(null)
     const [currentHizb, setCurrentHizb] = useState(null)
@@ -99,10 +98,27 @@ const Reader = () => {
     })
 
     const [translationData, setTranslationData] = useState([])
-    const [fontSize, setFontSize] = useState('text-xl')
     const [autoScroll, setAutoScroll] = useState(false)
     const [autoScrollSpeed, setAutoScrollSpeed] = useState(30)
     const [brightness, setBrightness] = useState(100)
+
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
+
+    const [fontSize, setFontSize] = useState(() => {
+        if (localStorage.getItem('font-size') === null) {
+            localStorage.setItem('font-size', 'text-xl')
+            return 'text-xl'
+        } else {
+            return localStorage.getItem('font-size')
+        }
+    })
 
     const toastId = useRef(null)
     const offlineToastId = useRef(null)
@@ -145,6 +161,15 @@ const Reader = () => {
             setAudioData(data)
         } catch (err) {
             console.log(err)
+            toast.error('Failed to fetch audio', {
+                position: 'top-center',
+                duration: 3000,
+                style: {
+                    marginTop: '50px',
+                    fontSize: '.8em',
+                    fontWeight: 600
+                }
+            })
         } finally {
             setTimeout(() => {
                 setIsRecite(false)
@@ -202,6 +227,15 @@ const Reader = () => {
             })
         } catch (err) {
             console.log(err)
+            toast.error('Failed to fetch translations', {
+                position: 'top-center',
+                duration: 3000,
+                style: {
+                    marginTop: '50px',
+                    fontSize: '.8em',
+                    fontWeight: 600
+                }
+            })
         } finally {
             setTimeout(() => {
                 setIsTranslationLoading(false)
@@ -369,13 +403,14 @@ const Reader = () => {
             >
                 <div className='flex flex-col border-b-2 flex-1 relative'>
                     <div
-                        className='flex flex-col items-center gap-1 text-main-text text-base font-semibold flex-1 bg-[#fffffd] overflow-y-scroll pt-[0.1px]'
+                        className={`flex flex-col items-center gap-1 text-main-text text-base font-semibold flex-1 bg-[#fffffd] overflow-y-scroll pt-[0.1px]`}
                         ref={mainDivRef}
                     >
                         {!isLoading && surah.ayahs && !isTranslate && (
                             <AyahContainer
                                 surah={surah}
                                 isRecite={isRecite}
+                                font={font}
                                 fontSize={fontSize}
                                 handleAyahSelection={handleAyahSelection}
                                 currentJuz={currentJuz}
@@ -394,6 +429,7 @@ const Reader = () => {
                                     surah={surah}
                                     isRecite={isRecite}
                                     fontSize={fontSize}
+                                    font={font}
                                     handleAyahSelection={handleAyahSelection}
                                     currentJuz={currentJuz}
                                     currentHizb={currentHizb}
@@ -440,6 +476,8 @@ const Reader = () => {
                 <ReaderSettings
                     isReaderSettingsShown={isReaderSettingsShown}
                     nodeRef={nodeRef}
+                    font={font}
+                    setFont={setFont}
                     fontSize={fontSize}
                     setFontSize={setFontSize}
                     brightness={brightness}
@@ -468,7 +506,7 @@ const Reader = () => {
                 ></div>
             )}
         </>
-    ) 
+    )
 }
 
 export default Reader

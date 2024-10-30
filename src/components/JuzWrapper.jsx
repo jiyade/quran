@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import Surah from './Surah'
 
-const JuzWrapper = ({ juz, surahs }) => {
+const JuzWrapper = ({ juz, surahs,font }) => {
     const keys = Object.keys(juz.verses).map(Number)
     const surahsInJuz = surahs.filter((surah) => keys.includes(surah.number))
     
@@ -27,6 +27,7 @@ const JuzWrapper = ({ juz, surahs }) => {
                         firstAyahInJuz={juz.first}
                         lastAyahInJuz={juz.last}
                         ayahRange={juz.verses[keys[i]]}
+                        font={font}
                         key={surah.number}
                     />
                 ))}

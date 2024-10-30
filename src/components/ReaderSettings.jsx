@@ -7,6 +7,8 @@ import ReaderTranslationSettings from './ReaderTranslationSettings'
 const ReaderSettings = ({
     isReaderSettingsShown,
     nodeRef,
+    font,
+    setFont,
     fontSize,
     setFontSize,
     brightness,
@@ -38,6 +40,8 @@ const ReaderSettings = ({
                 <div className='pt-12 pb-5'>
                     {currentSetting === 'display' && (
                         <ReaderDisplaySettings
+                            font={font}
+                            setFont={setFont}
                             fontSize={fontSize}
                             setFontSize={setFontSize}
                             brightness={brightness}

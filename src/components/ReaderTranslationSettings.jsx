@@ -13,37 +13,33 @@ const ReaderTranslationSettings = ({
     language,
     setLanguage,
     translation,
-    setTranslation
+    setTranslation,
+    
 }) => {
     const [translations, setTranslations] = useState(availableTranslations)
 
     useEffect(() => {
-        setTranslations(() => {
-            const allTranslations = [...availableTranslations]
+        const allTranslations = [...availableTranslations]
 
-            const filteredTranslations = allTranslations.filter(
-                (translation) =>
-                    translation.language === language.name.toLowerCase()
-            )
+        const filteredTranslations = allTranslations.filter(
+            (translation) =>
+                translation.language === language.name.toLowerCase()
+        )
 
-            return filteredTranslations
-        })
-    }, [language])
-
-    useEffect(() => {
-      if(localStorage.getItem('translation') === null) {
         const newTranslation = {
-            name: translations[0]?.name,
-            val: translations[0]?.id
+            name: filteredTranslations[0]?.name,
+            val: filteredTranslations[0]?.id
         }
 
         localStorage.setItem('translation', JSON.stringify(newTranslation))
+
         setTranslation(newTranslation)
-      }
-    }, [translations])
+        setTranslations(filteredTranslations)
+    }, [language])
 
     const handleLanguageSelect = (value) => {
         localStorage.setItem('translationLanguage', JSON.stringify(value))
+
         setLanguage(value)
     }
 
@@ -62,7 +58,8 @@ const ReaderTranslationSettings = ({
                             <Option
                                 value={{
                                     name: ln.name,
-                                    val: ln.code, direction: ln.direction
+                                    val: ln.code,
+                                    direction: ln.direction
                                 }}
                                 selected={language}
                                 handleClick={handleLanguageSelect}
@@ -83,8 +80,7 @@ const ReaderTranslationSettings = ({
                             <Option
                                 value={{
                                     name: translation.name,
-                                    val: translation.id,
-                                    
+                                    val: translation.id
                                 }}
                                 selected={translation}
                                 handleClick={handleTranslationSelect}

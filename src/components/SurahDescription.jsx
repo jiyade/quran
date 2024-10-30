@@ -1,19 +1,7 @@
-import { useState, useEffect,  } from 'react'
+import { useState, useEffect } from 'react'
 
-
-
-const SurahDescription = ({
-    surah,
-    currentJuz,
-    currentHizb,
-    
-}) => {
+const SurahDescription = ({ surah, currentJuz, currentHizb, font }) => {
     const [formattedHizb, setFormattedHizb] = useState('')
-
-    
-    
-
-    
 
     useEffect(() => {
         if (currentHizb) {
@@ -43,7 +31,7 @@ const SurahDescription = ({
 
     return (
         <div
-            className={`flex w-full h-16 relative font-amiri border-y-[3px] border-[#004d00] bg-[#004d00]`}
+            className={`flex w-full h-16 relative font-${font} border-y-[3px] border-[#004d00] bg-[#004d00]`}
         >
             <div className='w-full h-full absolute flex items-center'>
                 <div className='w-full h-[3px] bg-[#e8f5e9]'></div>
@@ -66,7 +54,9 @@ const SurahDescription = ({
                 <div className=''>
                     {surah?.numberOfAyahs.toLocaleString('ar-SA')} آيات
                 </div>
-                <div className=''>الجزء {currentJuz.toLocaleString('ar-SA')}</div>
+                <div className=''>
+                    الجزء {currentJuz.toLocaleString('ar-SA')}
+                </div>
             </div>
         </div>
     )

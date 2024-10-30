@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Surah = ({
     surah,
+    font,
     recitationsPage = false,
     reciteSurah = null,
     isJuzPage = false,
@@ -41,9 +42,7 @@ const Surah = ({
 
             <div className='flex flex-row justify-center items-center'>
                 <div className='flex flex-col justify-center items-end pr-4'>
-                    <p
-                        className={`text-main-text font-medium font-amiri text-lg`}
-                    >
+                    <p className={`text-main-text font-medium font-${font} text-lg`}>
                         {surah.name}
                     </p>
                     <span className='text-sub-text font-medium text-xs'>

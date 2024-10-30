@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import HizbQuarter from './HizbQuarter'
 
-const HizbWrapper = ({ hizb }) => {
+const HizbWrapper = ({ hizb, font }) => {
     const quarters = Object.keys(hizb.quarters).map(Number)
 
     return (
@@ -23,6 +23,7 @@ const HizbWrapper = ({ hizb }) => {
                         hizbQuarter={hizb.quarters[quarter]}
                         quarter={i + 1}
                         hizbNumber={hizb.number}
+                        font={font}
                         key={i}
                     />
                 ))}

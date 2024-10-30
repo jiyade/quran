@@ -6,6 +6,7 @@ const AyahContainer = ({
     isJuzPage = false,
     isRecite,
     handleAyahSelection,
+    font,
     fontSize,
     currentSurahNumber,
     lastSurahNumber,
@@ -26,11 +27,12 @@ const AyahContainer = ({
                     surah={isJuzPage ? surah.surah : surah}
                     currentJuz={currentJuz}
                     currentHizb={currentHizb}
+                    font={font}
                 />
             </div>
             <div
                 dir='rtl'
-                className={`px-5 w-full leading-[3rem] text-justify font-amiri ${fontSize} ${
+                className={`px-5 w-full leading-[3rem] text-justify font-${font} ${fontSize} ${
                     isJuzPage
                         ? currentSurahNumber === lastSurahNumber
                             ? 'pb-[60px] pt-4'

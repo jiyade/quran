@@ -14,6 +14,7 @@ const Footer = () => {
             <NavLink
                 to='/quran/surah'
                 className='flex flex-col items-center justify-center'
+                replace
             >
                 {location.pathname === '/quran/surah' ? (
                     <GoHomeFill

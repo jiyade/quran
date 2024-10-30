@@ -1,7 +1,11 @@
 import Slider from '@mui/material/Slider'
 import ReaderSettingsItem from './ReaderSettingsItem'
+import Select from './Select'
+import Option from './Option'
 
 const ReaderDisplaySettings = ({
+    font,
+    setFont,
     fontSize,
     setFontSize,
     brightness,
@@ -11,12 +15,24 @@ const ReaderDisplaySettings = ({
     autoScrollSpeed,
     setAutoScrollSpeed
 }) => {
+    const fonts = ['Amiri', 'Scheherazade', 'Vazirmatn']
+
     const handleFontChange = (font) => {
-        setFontSize(font)
+        localStorage.setItem('font', font)
+        setFont(font)
+    }
+
+    const handleFontSizeChange = (fontsize) => {
+        localStorage.setItem('font-size', fontsize)
+        setFontSize(fontsize)
+    }
+
+    const handleFontWeightChange = (fontweight) => {
+        localStorage.setItem('font-weight', fontweight)
+        setFontWeight(fontweight)
     }
 
     const handleAutoScrollSpeedChange = (e, val) => {
-        
         setAutoScrollSpeed(val)
     }
 
@@ -27,57 +43,60 @@ const ReaderDisplaySettings = ({
     return (
         <div className='flex flex-col gap-8 pt-3 text-sm'>
             <div className='flex flex-col justify-between px-3 gap-3'>
+                <p className='font-medium'>Font</p>
+                <div className='flex items-center gap-3 px-2'>
+                    {fonts.map((currentFont, i) => (
+                        <ReaderSettingsItem
+                            text={currentFont}
+                            selected={
+                                currentFont.replace(/ /g, '-').toLowerCase() ===
+                                font
+                            }
+                            onClick={() => {
+                                handleFontChange(
+                                    currentFont.replace(/ /g, '-').toLowerCase()
+                                )
+                            }}
+                            key={i}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className='flex flex-col justify-between px-3 gap-3'>
                 <p className='font-medium'>Font size</p>
                 <div className='flex items-center gap-3 px-2'>
                     <ReaderSettingsItem
                         text='Small'
-                        className={
-                            fontSize === 'text-lg'
-                                ? 'bg-blue-300 bg-opacity-40 border-0'
-                                : 'bg-transparent'
-                        }
-                        onClick={() => handleFontChange('text-lg')}
+                        selected={fontSize === 'text-lg'}
+                        onClick={() => handleFontSizeChange('text-lg')}
                     />
                     <ReaderSettingsItem
                         text='Medium'
-                        className={
-                            fontSize === 'text-xl'
-                                ? 'bg-blue-300 bg-opacity-40 border-0'
-                                : 'bg-transparent'
-                        }
-                        onClick={() => handleFontChange('text-xl')}
+                        selected={fontSize === 'text-xl'}
+                        onClick={() => handleFontSizeChange('text-xl')}
                     />
                     <ReaderSettingsItem
                         text='Big'
-                        className={
-                            fontSize === 'text-2xl'
-                                ? 'bg-blue-300 bg-opacity-40 border-0'
-                                : 'bg-transparent'
-                        }
-                        onClick={() => handleFontChange('text-2xl')}
+                        selected={fontSize === 'text-2xl'}
+                        onClick={() => handleFontSizeChange('text-2xl')}
                     />
                 </div>
             </div>
+
+            
 
             <div className='flex flex-col justify-between px-3 gap-3'>
                 <p className='font-medium'>Auto scroll</p>
                 <div className='flex items-center gap-3 px-2'>
                     <ReaderSettingsItem
                         text='Off'
-                        className={
-                            autoScroll === false
-                                ? 'bg-blue-300 bg-opacity-40 border-0'
-                                : 'bg-transparent'
-                        }
+                        selected={!autoScroll}
                         onClick={() => setAutoScroll(false)}
                     />
                     <ReaderSettingsItem
                         text='On'
-                        className={
-                            autoScroll === true
-                                ? 'bg-blue-300 bg-opacity-40 border-0'
-                                : 'bg-transparent'
-                        }
+                        selected={autoScroll}
                         onClick={() => setAutoScroll(true)}
                     />
                 </div>

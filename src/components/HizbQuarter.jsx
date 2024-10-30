@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
-const HizbQuarter = ({ hizbQuarter, hizbNumber, quarter }) => {
+const HizbQuarter = ({ hizbQuarter, hizbNumber, quarter, font }) => {
     const quartersInArabic = {
         1: 'الربع الأول',
         2: 'الربع الثاني',
         3: 'الربع الثالث',
         4: 'الربع الرابع'
     }
-    
+
     return (
         <Link
             to={`/quran/juz-hizb/hizb/${hizbNumber}?quarter=${quarter}`}
@@ -31,9 +31,7 @@ const HizbQuarter = ({ hizbQuarter, hizbNumber, quarter }) => {
 
             <div className='flex flex-row justify-center items-center'>
                 <div className='flex flex-col justify-center items-end pr-4'>
-                    <p
-                        className={`text-main-text font-medium font-amiri text-lg`}
-                    >
+                    <p className={`text-main-text font-medium font-${font} text-lg`}>
                         {quartersInArabic[quarter]}
                     </p>
                     <span className='text-sub-text font-medium text-xs'>

@@ -12,6 +12,15 @@ import ContinueReading from '../components/ContinueReading'
 const Homepage = () => {
     const [query, setQuery] = useState('')
     const [surahs, setSurahs] = useState(surahsJson)
+    
+    const [font, setFont] = useState(() => {
+        if (localStorage.getItem('font') === null) {
+            localStorage.setItem('font', 'amiri')
+            return 'amiri'
+        } else {
+            return localStorage.getItem('font')
+        }
+    })
 
     const [lastRead, setLastRead] = useState(() => {
         if (localStorage.getItem('last-read')) {
@@ -86,6 +95,7 @@ const Homepage = () => {
                 {surahs.map((surah) => (
                     <Surah
                         surah={surah}
+                        font={font}
                         key={surah.number}
                     />
                 ))}
