@@ -245,6 +245,10 @@ const Reader = () => {
 
     useEffect(() => {
         setIsLoading(true)
+        setIsTranslate(false)
+        setTranslationData([])
+        setIsRecite(false)
+        setAudioData(null)
 
         if (start && end) {
             const surah = surahs[`surah${id}`]

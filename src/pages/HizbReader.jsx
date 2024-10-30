@@ -254,6 +254,11 @@ const HizbReader = () => {
     useEffect(() => {
         if (Object.keys(hizb).length > 0) {
             setSurahs([])
+            setIsTranslate(false)
+            setTranslationData([])
+            setIsRecite(false)
+            setAudioData(null)
+            
             if (!quarter) {
                 const keys = Object.keys(hizb.data)
                 const surahObj = []

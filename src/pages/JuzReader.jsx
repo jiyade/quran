@@ -252,6 +252,11 @@ const JuzReader = () => {
     useEffect(() => {
         if (Object.keys(juz).length > 0) {
             setSurahs([])
+            setIsTranslate(false)
+        setTranslationData([])
+        setIsRecite(false)
+        setAudioData(null)
+        
             const surahNumbers = [
                 ...new Set(juz?.ayahs.map((ayah) => ayah.surah.number))
             ]
