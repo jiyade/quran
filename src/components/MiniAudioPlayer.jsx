@@ -103,12 +103,11 @@ const MiniAudioPlayer = ({
         const playAudio = async () => {
             if (audioData && audioRef?.current?.readyState >= 3) {
                 try {
-
                     await audioRef.current.play()
                     setIsPlaying(true)
                 } catch (error) {
                     console.warn('Playback failed:', error)
-                } 
+                }
             }
         }
         playAudio()
@@ -139,7 +138,9 @@ const MiniAudioPlayer = ({
                         </div>
                         <p className='text-xs font-semibold'>
                             {recitationsPage
-                                ? audioData?.reciter
+                                ? audioData?.style
+                                    ? `${audioData?.reciter} (${audioData.style})`
+                                    : audioData?.reciter
                                 : audioData?.edition?.englishName}
                         </p>
                     </div>

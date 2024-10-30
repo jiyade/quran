@@ -54,14 +54,16 @@ const ReaderRecitationSettings = ({
                                 <Option
                                     value={{
                                         name: audio.reciter_name,
-                                        val: audio.id
+                                        val: audio.id,
+                                        style: audio.style
                                     }}
                                     selected={surahReciter}
                                     handleClick={handleSelectSurahReciter}
                                     key={audio.id}
                                     recitationsPage={recitationsPage}
                                 >
-                                    {audio.reciter_name}{audio.style ? `(${audio.style})` : ''}
+                                    {audio.reciter_name}
+                                    {audio.style ? ` (${audio.style})` : ''}
                                 </Option>
                             ))}
                         </Select>

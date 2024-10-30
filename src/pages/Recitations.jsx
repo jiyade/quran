@@ -27,7 +27,8 @@ const Recitations = () => {
         if (localStorage.getItem('surah-reciter') === null) {
             const obj = {
                 name: 'AbdulBaset AbdulSamad',
-                val: '1'
+                val: '1',
+                style: 'Murattal'
             }
             localStorage.setItem('surah-reciter', JSON.stringify(obj))
             return obj
@@ -89,9 +90,11 @@ const Recitations = () => {
                 `${AUDIO_BASE_URL}/chapter_recitations/${surahReciter.val}/${surahId}`
             )
             const data = await res?.data?.audio_file
+           
             const obj = {
                 audio: data.audio_url,
                 reciter: surahReciter.name,
+                style: surahReciter.style,
                 surah: {
                     number: surahId,
                     englishName: surahsJson[surahId - 1].englishName
@@ -101,6 +104,15 @@ const Recitations = () => {
             setAudioData(obj)
         } catch (err) {
             console.log(err)
+            toast.error('Failed to fetch audio', {
+                position: 'top-center',
+                duration: 3000,
+                style: {
+                    marginTop: '50px',
+                    fontSize: '.8em',
+                    fontWeight: 600
+                }
+            })
         } finally {
             setTimeout(() => {
                 setIsAudioLoading(false)
