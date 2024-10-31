@@ -63,7 +63,7 @@ const AyahWithTranslation = ({
 
     return (
         <div
-            className={`flex flex-col gap-3 py-4 px-3 ${
+            className={`flex flex-col gap-3 py-4 px-3 break-all w-full ${
                 (surahId === 1 && ayah.numberInSurah !== 1) ||
                 (surahId !== 1 && ayah.numberInSurah !== 0)
                     ? 'border-t'

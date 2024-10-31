@@ -21,7 +21,7 @@ const AyahWithTranslationContainer = ({
     const surahId = surah?.surah?.number || Number(useParams().id)
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-full'>
             <div
                 className={`w-full z-10 ${
                     isJuzPage ? 'sticky top-0' : 'fixed'
