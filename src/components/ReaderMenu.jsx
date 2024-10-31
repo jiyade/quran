@@ -78,6 +78,9 @@ const ReaderMenu = ({
     }
 
     const handleNext = () => {
+      toast.dismiss(toastId.current)
+      toast.dismiss(offlineToastId.current)
+      
         if (isJuzPage) {
             if (id < 30)
                 navigate(`/quran/juz-hizb/juz/${id + 1}`, { replace: true })
@@ -90,6 +93,9 @@ const ReaderMenu = ({
     }
 
     const handlePrevious = () => {
+      toast.dismiss(toastId.current)
+      toast.dismiss(offlineToastId.current)
+      
         if (isJuzPage) {
             if (id > 1)
                 navigate(`/quran/juz-hizb/juz/${id - 1}`, { replace: true })
